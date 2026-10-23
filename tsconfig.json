@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "ES2021",
-    "lib": ["ES2021"],
+    "module": "node20",
+    "moduleResolution": "node16",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "types": ["node", "jest"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "isolatedModules": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
@@ -17,19 +19,7 @@
     "strictPropertyInitialization": false,
     "noImplicitAny": false,
     "outDir": "./dist",
-    "rootDir": "./src",
-    "baseUrl": "./",
-    "paths": {
-      "@andestec/persistencia-redis": [
-        "./node_modules/@andestec/persistencia-redis/dist/index.d.ts"
-      ],
-      "@andestec/persistencia-redis/nestjs": [
-        "./node_modules/@andestec/persistencia-redis/dist/nestjs/index.d.ts"
-      ],
-      "@andestec/api-dispositivos": [
-        "./node_modules/@andestec/api-dispositivos/dist/index.d.ts"
-      ]
-    }
+    "rootDir": "./src"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
