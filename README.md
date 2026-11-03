@@ -2,8 +2,8 @@
 
 API de Parámetros como **librería NestJS** de servicios inyectables (sin controladores HTTP),
 port del cliente GeneXus 18 (Java). Caché **solo en Redis** vía
-[`@andestec/persistencia-redis`](https://github.com/CristobalEfveliz/persistencia-redis) y
-autenticación vía [`@andestec/api-dispositivos`](https://github.com/CristobalEfveliz/APIDispositivo-NestJS).
+[`@andestec/persistencia-redis`](https://github.com/Enternet-SA/persistencia-redis) y
+autenticación vía [`@andestec/api-dispositivos`](https://github.com/Enternet-SA/APIDispositivo-NestJS).
 Consume el backend REST `ObtencionParametros`.
 
 ## Arquitectura
@@ -35,7 +35,7 @@ cachea en Redis indexado por el contexto completo `contextId(App, EmpKey, Alcanc
 Se instala como dependencia, igual que las otras APIs. Desde git:
 
 ```bash
-npm install git+https://github.com/CristobalEfveliz/APIParametros-NestJS.git#main
+npm install git+https://github.com/Enternet-SA/APIParametros-NestJS.git#main
 ```
 
 El paquete compila su `dist/` automáticamente al instalarse (script `prepare`).
@@ -51,9 +51,12 @@ caché en Redis; la segunda, la identidad del dispositivo, el token (`ApiKey`) y
 El proyecto consumidor debe proveer (npm 7+ las instala automáticamente):
 
 ```
-@nestjs/common  @nestjs/core  @nestjs/config  @nestjs/axios
+@nestjs/common  @nestjs/core  @nestjs/config  @nestjs/axios   (^12)
 axios  rxjs  reflect-metadata
 ```
+
+Requiere **NestJS 12** y **Node.js ^20.19 o >= 22.12**. Los paquetes de Nest 12 son
+ESM-only; esta librería se compila a CommonJS y los carga vía `require(esm)` de Node.
 
 ### Resolución de tipos (importante)
 
